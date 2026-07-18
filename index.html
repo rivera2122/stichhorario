@@ -69,33 +69,33 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Imágenes de Stitch insertadas */
+        /* Imágenes de Stitch insertadas - Ajustadas para PNGs transparentes */
         .stitch-img {
             position: absolute;
             z-index: 10;
             pointer-events: none;
-            filter: drop-shadow(0px 10px 8px rgba(0,0,0,0.15));
+            filter: drop-shadow(0px 8px 6px rgba(0,0,0,0.2));
             animation: float-stitch 4s ease-in-out infinite alternate;
         }
 
         /* Animación para que Stitch flote suavemente */
         @keyframes float-stitch {
             0% { transform: translateY(0px) rotate(0deg); }
-            100% { transform: translateY(-12px) rotate(3deg); }
+            100% { transform: translateY(-10px) rotate(2deg); }
         }
 
         .stitch-top-left {
-            top: -65px;
+            top: -70px;
             left: -40px;
-            width: 160px;
+            width: 150px;
             transform: rotate(-10deg);
         }
 
         .stitch-bottom-right {
             bottom: -50px;
             right: -30px;
-            width: 140px;
-            animation-delay: 1s; /* Para que se mueva distinto al otro */
+            width: 130px;
+            animation-delay: 1.5s; 
         }
 
         /* Flores tropicales */
@@ -181,7 +181,6 @@
             position: relative;
         }
 
-        /* Efecto de elevación interactivo en las materias */
         td:not(.time-cell):not(.bg-empty):hover {
             transform: translateY(-4px) scale(1.02);
             box-shadow: 0 8px 16px rgba(30, 93, 219, 0.2);
@@ -214,7 +213,6 @@
             box-shadow: 0 1px 3px rgba(0,0,0,0.05);
         }
         
-        /* Estilo para los salones */
         .room-tag {
             font-size: 0.75rem;
             font-weight: 800;
@@ -257,9 +255,9 @@
         @media (max-width: 768px) {
             .scroll-tip { display: block; }
             .header h1 { font-size: 1.8rem; }
-            body { padding: 30px 10px; }
+            body { padding: 40px 10px; }
             .container { padding: 15px; }
-            .stitch-top-left { width: 100px; top: -40px; left: -10px; }
+            .stitch-top-left { width: 100px; top: -45px; left: -10px; }
             .stitch-bottom-right { width: 90px; bottom: -30px; right: -10px; }
         }
     </style>
@@ -268,9 +266,10 @@
 
 <div class="container">
     
-    <!-- Aquí están las imágenes de Stitch que decoran el contenedor -->
-    <img src="https://media.giphy.com/media/11s7Ke7jcNxCHS/giphy.gif" alt="Stitch saludando" class="stitch-img stitch-top-left">
-    <img src="https://media.giphy.com/media/F3j9D6KeqmJMI/giphy.gif" alt="Stitch tierno" class="stitch-img stitch-bottom-right">
+    <!-- Enlaces directos a PNGs 100% seguros de Stitch con fondo transparente -->
+    <img src="https://assets.stickpng.com/images/580b57fbd9996e24bc43bd82.png" alt="Stitch sentado" class="stitch-img stitch-top-left">
+    
+    <img src="https://i.pinimg.com/originals/a0/62/fa/a062fa88cd72221dc26d368bc7f9888f.png" alt="Stitch feliz" class="stitch-img stitch-bottom-right">
 
     <div class="ribbon-decor">
         <span class="ribbon">🌺</span>
