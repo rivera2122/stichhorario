@@ -7,18 +7,18 @@
     <style>
         :root {
             /* Paleta general Lilo & Stitch */
-            --bg-color: #e0f4fc; /* Celeste muy claro */
-            --main-text: #0c335a; /* Azul oscuro */
-            --accent-stitch: #1e5ddb; /* Azul Stitch */
-            --accent-flower: #ff5277; /* Rosa hibisco */
+            --bg-color: #e0f4fc; 
+            --main-text: #0c335a; 
+            --accent-stitch: #1e5ddb; 
+            --accent-flower: #ff5277; 
             
             /* Colores de las cabeceras de los días */
-            --th-hora: #ff9f1c; /* Naranja atardecer tropical */
-            --th-lunes: #1e5ddb; /* Azul Stitch */
-            --th-martes: #00a8e8; /* Azul océano */
-            --th-miercoles: #7a5cff; /* Morado espacial */
-            --th-jueves: #ff5277; /* Rosa tropical */
-            --th-viernes: #00c4b5; /* Turquesa hawaiano */
+            --th-hora: #ff9f1c; 
+            --th-lunes: #1e5ddb; 
+            --th-martes: #00a8e8; 
+            --th-miercoles: #7a5cff; 
+            --th-jueves: #ff5277; 
+            --th-viernes: #00c4b5; 
 
             /* Colores pasteles temáticos para las materias */
             --biofisica-bg: #dbeafe; --biofisica-text: #1e40af; --biofisica-border: #bfdbfe;
@@ -41,28 +41,16 @@
             background-image: radial-gradient(#bae6fd 2px, transparent 2px);
             background-size: 30px 30px;
             color: var(--main-text);
-            padding: 20px;
+            padding: 40px 20px;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             overflow-x: hidden;
+            position: relative;
         }
 
-        /* Decoración de elementos flotantes en el fondo (Olas y flores) */
-        .ambient-sparkle {
-            position: absolute;
-            font-size: 24px;
-            pointer-events: none;
-            animation: float-around 6s ease-in-out infinite alternate;
-            opacity: 0.6;
-        }
-
-        @keyframes float-around {
-            0% { transform: translateY(0) rotate(0deg); }
-            100% { transform: translateY(-15px) rotate(15deg); }
-        }
-
+        /* Contenedor principal */
         .container {
             width: 100%;
             max-width: 1200px;
@@ -73,6 +61,7 @@
             position: relative;
             border: 2px solid #bae6fd;
             animation: fadeIn 0.8s ease-out;
+            z-index: 2;
         }
 
         @keyframes fadeIn {
@@ -80,12 +69,41 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Flores tropicales superiores */
+        /* Imágenes de Stitch insertadas */
+        .stitch-img {
+            position: absolute;
+            z-index: 10;
+            pointer-events: none;
+            filter: drop-shadow(0px 10px 8px rgba(0,0,0,0.15));
+            animation: float-stitch 4s ease-in-out infinite alternate;
+        }
+
+        /* Animación para que Stitch flote suavemente */
+        @keyframes float-stitch {
+            0% { transform: translateY(0px) rotate(0deg); }
+            100% { transform: translateY(-12px) rotate(3deg); }
+        }
+
+        .stitch-top-left {
+            top: -65px;
+            left: -40px;
+            width: 160px;
+            transform: rotate(-10deg);
+        }
+
+        .stitch-bottom-right {
+            bottom: -50px;
+            right: -30px;
+            width: 140px;
+            animation-delay: 1s; /* Para que se mueva distinto al otro */
+        }
+
+        /* Flores tropicales */
         .ribbon-decor {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 15px;
+            margin-bottom: 5px;
         }
         .ribbon {
             font-size: 32px;
@@ -239,20 +257,21 @@
         @media (max-width: 768px) {
             .scroll-tip { display: block; }
             .header h1 { font-size: 1.8rem; }
-            body { padding: 10px; }
+            body { padding: 30px 10px; }
             .container { padding: 15px; }
+            .stitch-top-left { width: 100px; top: -40px; left: -10px; }
+            .stitch-bottom-right { width: 90px; bottom: -30px; right: -10px; }
         }
     </style>
 </head>
 <body>
 
-<!-- Elementos decorativos animados en el fondo -->
-<div class="ambient-sparkle" style="top: 10%; left: 5%;">🌺</div>
-<div class="ambient-sparkle" style="top: 20%; right: 8%;">🌊</div>
-<div class="ambient-sparkle" style="top: 70%; left: 8%;">🐾</div>
-<div class="ambient-sparkle" style="top: 85%; right: 5%;">🌴</div>
-
 <div class="container">
+    
+    <!-- Aquí están las imágenes de Stitch que decoran el contenedor -->
+    <img src="https://media.giphy.com/media/11s7Ke7jcNxCHS/giphy.gif" alt="Stitch saludando" class="stitch-img stitch-top-left">
+    <img src="https://media.giphy.com/media/F3j9D6KeqmJMI/giphy.gif" alt="Stitch tierno" class="stitch-img stitch-bottom-right">
+
     <div class="ribbon-decor">
         <span class="ribbon">🌺</span>
         <span class="ribbon" style="animation-delay: 1.5s;">🌺</span>
